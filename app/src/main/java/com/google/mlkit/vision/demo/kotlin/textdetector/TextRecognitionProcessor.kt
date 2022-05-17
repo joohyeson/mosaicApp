@@ -40,6 +40,7 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
 
   private val filename = "test.txt"
 
+  private var frameVar=1;
   override fun stop() {
     super.stop()
     textRecognizer.close()
@@ -52,20 +53,31 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
   override fun onSuccess(text: Text, graphicOverlay: GraphicOverlay) {
     Log.d(TAG, "On-device Text detection successful")
 
-    // 텍스트 저장하기
-    if (text != null) {
+
+    if(frameVar%10==0)
+    {
+
+      // 텍스트 저장하기
       val fileContents = text.text
 
       try {
-        context.openFileOutput(filename, Context.MODE_PRIVATE).use {
-          it.write(fileContents.toByteArray())
+            context.openFileOutput(filename, Context.MODE_PRIVATE).use {
+            it.write(fileContents.toByteArray())
+            Log.d(TAG, "Write!")
+              frameVar = 1
         }
       } catch (e: IOException) {
         Log.d(TAG, "error!")
       }
+
+    }
+    else
+    {
+      frameVar++
+      Log.d("Frame TEST", frameVar.toString())
     }
 
-    logExtrasForTesting(text)
+//    logExtrasForTesting(text)
     graphicOverlay.add(
       TextGraphic(graphicOverlay, text, shouldGroupRecognizedTextInBlocks, showLanguageTag))
   }

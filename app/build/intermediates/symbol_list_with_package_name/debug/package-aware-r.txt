@@ -1042,7 +1042,6 @@ id imageView
 id info
 id invisible
 id italic
-id java_entry_point
 id jumpToEnd
 id jumpToStart
 id kotlin_entry_point
@@ -1220,8 +1219,8 @@ layout activity_settings
 layout activity_still_image
 layout activity_vision_camerax_live_preview
 layout activity_vision_cameraxsource_demo
-layout activity_vision_entry_choice
 layout activity_vision_live_preview
+layout activity_vision_starter
 layout custom_dialog
 layout notification_action
 layout notification_action_tombstone
@@ -1292,7 +1291,6 @@ string desc_camerax_live_preview_activity
 string desc_cameraxsource_demo_activity
 string desc_still_image_activity
 string download_error
-string java_entry_title
 string kotlin_entry_title
 string low_storage_error
 string menu_item_settings

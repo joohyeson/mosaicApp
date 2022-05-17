@@ -23,7 +23,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.util.ArrayList
@@ -32,7 +31,7 @@ class EntryChoiceActivity : AppCompatActivity(), ActivityCompat.OnRequestPermiss
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_vision_entry_choice)
+    setContentView(R.layout.activity_vision_starter)
 
 //    findViewById<TextView>(R.id.java_entry_point).setOnClickListener {
 //      val intent = Intent(this@EntryChoiceActivity, ChooserActivity::class.java)
