@@ -16,27 +16,22 @@
 
 package com.google.mlkit.vision.demo.kotlin
 
-import android.content.Context
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
+import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
-import android.widget.ArrayAdapter
-import android.widget.CompoundButton
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.Toast
-import android.widget.ToggleButton
 import androidx.annotation.RequiresApi
-import androidx.camera.core.CameraInfoUnavailableException
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageProxy
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
@@ -44,7 +39,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.common.annotation.KeepName
 import com.google.mlkit.common.MlKitException
-import com.google.mlkit.common.model.LocalModel
 import com.google.mlkit.vision.demo.CameraXViewModel
 import com.google.mlkit.vision.demo.GraphicOverlay
 import com.google.mlkit.vision.demo.R
@@ -53,14 +47,13 @@ import com.google.mlkit.vision.demo.kotlin.textdetector.TextRecognitionProcessor
 import com.google.mlkit.vision.demo.preference.PreferenceUtils
 import com.google.mlkit.vision.demo.preference.SettingsActivity
 import com.google.mlkit.vision.demo.preference.SettingsActivity.LaunchSource
-import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions
-import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
-import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions
-import com.google.mlkit.vision.text.devanagari.DevanagariTextRecognizerOptions
-import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions
 import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import java.util.ArrayList
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 /** Live preview demo app for ML Kit APIs using CameraX. */
 @KeepName
@@ -79,6 +72,18 @@ class CameraXLivePreviewActivity :
   private var lensFacing = CameraSelector.LENS_FACING_BACK
   private var cameraSelector: CameraSelector? = null
 
+
+  private var imageCapture: ImageCapture? = null
+
+
+  private lateinit var outputDirectory: File
+  private lateinit var cameraExecutor: ExecutorService
+
+  private lateinit var cameraAnimationListener: Animation.AnimationListener
+
+  private var savedUri: Uri? = null
+
+  @RequiresApi(VERSION_CODES.R)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     Log.d(TAG, "onCreate")
@@ -120,12 +125,121 @@ class CameraXLivePreviewActivity :
         }
       )
 
+
     val settingsButton = findViewById<ImageView>(R.id.settings_button)
     settingsButton.setOnClickListener {
       val intent = Intent(applicationContext, SettingsActivity::class.java)
       intent.putExtra(SettingsActivity.EXTRA_LAUNCH_SOURCE, LaunchSource.CAMERAX_LIVE_PREVIEW)
       startActivity(intent)
     }
+
+    val saveButton=findViewById<Button>(R.id.button2)
+    saveButton.setOnClickListener {
+      savePhoto()
+    }
+
+    permissionCheck()
+    outputDirectory=getOutputDirectory()
+      //Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+
+    cameraExecutor= Executors.newSingleThreadExecutor()
+
+  }
+
+  private fun savePhoto() {
+    imageCapture = imageCapture ?: return
+
+    val photoFile = File(
+      outputDirectory,
+      SimpleDateFormat("yy-mm-dd", Locale.US).format(System.currentTimeMillis()) + ".png"
+    )
+    val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+    imageCapture?.takePicture(
+      outputOption,
+      ContextCompat.getMainExecutor(this),
+      object : ImageCapture.OnImageSavedCallback {
+        override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+          savedUri = Uri.fromFile(photoFile)
+          Log.d("SAVEURL", savedUri.toString())
+        }
+
+        override fun onError(exception: ImageCaptureException) {
+          exception.printStackTrace()
+          onBackPressed()
+        }
+
+      })
+
+  }
+
+  private fun permissionCheck() {
+
+    var permissionList =
+      listOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+
+
+    if (!PermissionUtil.checkPermission(this, permissionList)) {
+      PermissionUtil.requestPermission(this, permissionList)
+    } else {
+      openCamera()
+
+    }
+  }
+
+  override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray
+  ) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+      openCamera()
+    } else {
+
+      onBackPressed()
+    }
+  }
+
+  private fun getOutputDirectory(): File {
+    val mediaDir = externalMediaDirs.firstOrNull()?.let {
+      File(it, resources.getString(R.string.app_name)).apply { mkdirs() }
+    }
+    return if (mediaDir != null && mediaDir.exists())
+      mediaDir else filesDir
+  }
+
+  private fun openCamera() {
+
+
+    val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+
+    cameraProviderFuture.addListener({
+      val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+
+      val preview = Preview.Builder()
+        .build()
+        .also {
+          it.setSurfaceProvider(previewView?.surfaceProvider)
+        }
+
+      imageCapture = ImageCapture.Builder().build()
+
+      val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+      try {
+
+        cameraProvider.unbindAll()
+        cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
+
+
+      } catch (e: Exception) {
+
+      }
+    }, ContextCompat.getMainExecutor(this))
+
   }
 
   override fun onSaveInstanceState(bundle: Bundle) {

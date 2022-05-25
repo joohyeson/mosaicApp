@@ -862,6 +862,7 @@ int drawable common_google_signin_btn_text_light_normal_background 0x7f070070
 int drawable googleg_disabled_color_18 0x7f070071
 int drawable googleg_standard_color_18 0x7f070072
 int drawable ic_settings_white_24dp 0x7f070073
+int drawable ic_shutter 0x7f070086
 int drawable ic_switch_camera_white_48dp 0x7f070074
 int drawable ic_switch_camera_white_48dp_inset 0x7f070075
 int drawable list_item_background 0x7f070076
@@ -965,6 +966,7 @@ int id beginning 0x7f080051
 int id blocking 0x7f080052
 int id bottom 0x7f080053
 int id bounce 0x7f080054
+int id button2 0x7f080125
 int id buttonPanel 0x7f080055
 int id cache_measures 0x7f080056
 int id center 0x7f080057
@@ -1387,6 +1389,7 @@ int string pref_title_rear_camera_preview_size 0x7f0e0093
 int string pref_title_segmentation_raw_size_mask 0x7f0e0094
 int string pref_title_show_language_tag 0x7f0e0095
 int string pref_toast_invalid_min_face_size 0x7f0e0096
+int string save 0x7f0e009d
 int string search_menu_title 0x7f0e0097
 int string select_image 0x7f0e0098
 int string start_over 0x7f0e0099

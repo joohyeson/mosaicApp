@@ -56,7 +56,6 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
 
     if(frameVar%10==0)
     {
-
       // 텍스트 저장하기
       val fileContents = text.text
 
