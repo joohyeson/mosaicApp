@@ -27,6 +27,7 @@ import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
 import com.google.mlkit.vision.text.TextRecognizerOptionsInterface
+import okhttp3.*
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -39,8 +40,9 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
   private val showLanguageTag: Boolean = PreferenceUtils.showLanguageTag(context)
 
   private val filename = "test.txt"
+  private var frameVar = 1
+  private var serverRun = 0
 
-  private var frameVar=1;
   override fun stop() {
     super.stop()
     textRecognizer.close()
@@ -53,6 +55,11 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
   override fun onSuccess(text: Text, graphicOverlay: GraphicOverlay) {
     Log.d(TAG, "On-device Text detection successful")
 
+
+    if (serverRun==0) {
+      HttpCheckId()
+      serverRun = 1
+    }
 
     if(frameVar%10==0)
     {
@@ -79,6 +86,45 @@ class TextRecognitionProcessor(private val context: Context, textRecognizerOptio
 //    logExtrasForTesting(text)
     graphicOverlay.add(
       TextGraphic(graphicOverlay, text, shouldGroupRecognizedTextInBlocks, showLanguageTag))
+  }
+
+  fun HttpCheckId(){
+
+    // URL을 만들어 주고
+    val url = "https://myser.run-asia-northeast1.goorm.io/post"
+
+    //데이터를 담아 보낼 바디를 만든다
+    val requestBody : RequestBody = FormBody.Builder()
+      .add("id","지난달 28일 수원에 살고 있는 윤주성 연구원은 코엑스(서울 삼성역)에서 개최되는 DEVIEW 2019 Day1에 참석했다. LaRva팀의 '엄~청 큰 언어 모델 공장 가동기!' 세션을 들으며 언어모델을 학습시킬때 multi-GPU, TPU 모두 써보고 싶다는 생각을 했다.")
+      .build()
+
+    // OkHttp Request 를 만들어준다.
+    val request = Request.Builder()
+      .url(url)
+      .post(requestBody)
+      .build()
+
+    // 클라이언트 생성
+    val client = OkHttpClient()
+
+    Log.d("전송 주소 ","https://myser.run-asia-northeast1.goorm.io/post")
+
+    // 요청 전송
+    client.newCall(request).enqueue(object : Callback {
+
+      override fun onResponse(call: Call, response: Response) {
+        val body = response.body?.string();
+
+
+        Log.d("요청", body!!)
+      }
+
+      override fun onFailure(call: Call, e: IOException) {
+        Log.d("요청","요청 실패 ")
+      }
+
+    })
+
   }
 
   override fun onFailure(e: Exception) {

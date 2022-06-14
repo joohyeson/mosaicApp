@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\154c058e7ecee1a024368100d997cfef\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\93c965107993d3edcc6a32ad38f2298b\transformed\jetified-pose-detection-accurate-18.0.0-beta2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-common:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\9d5af28b1d4208a6796fef9bdb12fee6\transformed\jetified-pose-detection-common-18.0.0-beta2\AndroidManifest.xml:2:1-35:12
@@ -83,22 +83,22 @@ MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Juhye\.gradle\caches\transfo
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Juhye\.gradle\caches\transforms-3\50662fdc54e41fbcb704c818cc0fdfb8\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Juhye\.gradle\caches\transforms-3\2836f1617ea33c47fc913b46de88e9a1\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Juhye\.gradle\caches\transforms-3\a0af78930eb68aff680c92f9ecf84f66\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
-INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
 	package
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:5:5-43
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:4:5-51
 	android:versionCode
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-67:12
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2:1-69:12
 		INJECTED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:3:5-63
@@ -307,7 +307,7 @@ ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:2
 	android:name
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:22:22-62
 application
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:24:5-60:19
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:24:5-62:19
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\154c058e7ecee1a024368100d997cfef\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\154c058e7ecee1a024368100d997cfef\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\93c965107993d3edcc6a32ad38f2298b\transformed\jetified-pose-detection-accurate-18.0.0-beta2\AndroidManifest.xml:7:5-20
@@ -372,6 +372,8 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Juhye\.gradle\c
 		ADDED from [androidx.core:core:1.6.0] C:\Users\Juhye\.gradle\caches\transforms-3\a4ddd5336e4c3374859fa27920a2dc67\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:27:9-41
+	android:hardwareAccelerated
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:29:9-43
 	android:icon
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:26:9-44
 	android:theme
@@ -379,59 +381,59 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Juhye\.gradle\c
 	android:name
 		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:25:9-61
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:30:9-32:68
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:32:9-34:68
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Juhye\.gradle\caches\transforms-3\f563d3d4a7d4ac06ca1fe3e805adeddb\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\Juhye\.gradle\caches\transforms-3\f563d3d4a7d4ac06ca1fe3e805adeddb\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:32:13-66
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:34:13-66
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:31:13-58
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:33:13-58
 meta-data#com.google.mlkit.vision.DEPENDENCIES
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:36:9-38:62
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:38:9-40:62
 	android:value
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:38:13-60
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:40:13-60
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:37:13-64
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:39:13-64
 activity#com.google.mlkit.vision.demo.EntryChoiceActivity
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:40:9-48:20
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:42:9-50:20
 	android:exported
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:42:13-36
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:44:13-36
 	android:theme
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:43:13-44
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:45:13-44
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:41:13-48
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:43:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:44:13-47:29
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:46:13-49:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:45:17-68
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:47:17-68
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:45:25-66
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:47:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:46:17-76
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:48:17-76
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:48:27-74
 activity#com.google.mlkit.vision.demo.kotlin.CameraXLivePreviewActivity
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:50:9-54:20
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:52:9-56:20
 	android:exported
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:52:13-37
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:54:13-37
 	android:theme
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:53:13-44
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:55:13-44
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:51:13-62
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:53:13-62
 activity#com.google.mlkit.vision.demo.preference.SettingsActivity
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:56:9-58:39
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:58:9-60:39
 	android:exported
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:58:13-37
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:60:13-37
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:57:13-56
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:59:13-56
 queries
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:61:5-65:15
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:63:5-67:15
 intent#action:name:android.media.action.IMAGE_CAPTURE
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:62:9-64:18
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:64:9-66:18
 action#android.media.action.IMAGE_CAPTURE
-ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:63:13-73
+ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:65:13-73
 	android:name
-		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:63:21-70
+		ADDED from C:\Users\Juhye\Documents\mosaicApp\app\src\main\AndroidManifest.xml:65:21-70
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.mlkit:pose-detection-common:18.0.0-beta2] C:\Users\Juhye\.gradle\caches\transforms-3\9d5af28b1d4208a6796fef9bdb12fee6\transformed\jetified-pose-detection-common-18.0.0-beta2\AndroidManifest.xml:7:5-79
 MERGED from [com.google.mlkit:object-detection:17.0.0] C:\Users\Juhye\.gradle\caches\transforms-3\8631942965ed380f6092315553dd2c06\transformed\jetified-object-detection-17.0.0\AndroidManifest.xml:7:5-79

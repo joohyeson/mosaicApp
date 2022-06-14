@@ -16,21 +16,16 @@
 
 package com.google.mlkit.vision.demo.kotlin
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
-import android.os.Environment
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -52,8 +47,6 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 /** Live preview demo app for ML Kit APIs using CameraX. */
 @KeepName
@@ -77,9 +70,8 @@ class CameraXLivePreviewActivity :
 
 
   private lateinit var outputDirectory: File
-  private lateinit var cameraExecutor: ExecutorService
 
-  private lateinit var cameraAnimationListener: Animation.AnimationListener
+//  private lateinit var cameraAnimationListener: Animation.AnimationListener
 
   private var savedUri: Uri? = null
 
@@ -138,11 +130,8 @@ class CameraXLivePreviewActivity :
       savePhoto()
     }
 
-    permissionCheck()
     outputDirectory=getOutputDirectory()
       //Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-
-    cameraExecutor= Executors.newSingleThreadExecutor()
 
   }
 
@@ -173,73 +162,12 @@ class CameraXLivePreviewActivity :
 
   }
 
-  private fun permissionCheck() {
-
-    var permissionList =
-      listOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
-
-
-    if (!PermissionUtil.checkPermission(this, permissionList)) {
-      PermissionUtil.requestPermission(this, permissionList)
-    } else {
-      openCamera()
-
-    }
-  }
-
-  override fun onRequestPermissionsResult(
-    requestCode: Int,
-    permissions: Array<out String>,
-    grantResults: IntArray
-  ) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-      openCamera()
-    } else {
-
-      onBackPressed()
-    }
-  }
-
   private fun getOutputDirectory(): File {
     val mediaDir = externalMediaDirs.firstOrNull()?.let {
       File(it, resources.getString(R.string.app_name)).apply { mkdirs() }
     }
     return if (mediaDir != null && mediaDir.exists())
       mediaDir else filesDir
-  }
-
-  private fun openCamera() {
-
-
-    val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
-    cameraProviderFuture.addListener({
-      val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
-
-      val preview = Preview.Builder()
-        .build()
-        .also {
-          it.setSurfaceProvider(previewView?.surfaceProvider)
-        }
-
-      imageCapture = ImageCapture.Builder().build()
-
-      val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-      try {
-
-        cameraProvider.unbindAll()
-        cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture)
-
-
-      } catch (e: Exception) {
-
-      }
-    }, ContextCompat.getMainExecutor(this))
-
   }
 
   override fun onSaveInstanceState(bundle: Bundle) {
@@ -416,9 +344,6 @@ class CameraXLivePreviewActivity :
   companion object {
     private const val TAG = "CameraXLivePreview"
     private const val TEXT_RECOGNITION_LATIN = "Text Recognition Latin"
-    private const val TEXT_RECOGNITION_CHINESE = "Text Recognition Chinese"
-    private const val TEXT_RECOGNITION_DEVANAGARI = "Text Recognition Devanagari"
-    private const val TEXT_RECOGNITION_JAPANESE = "Text Recognition Japanese"
     private const val TEXT_RECOGNITION_KOREAN = "Text Recognition Korean"
 
     private const val STATE_SELECTED_MODEL = "selected_model"
